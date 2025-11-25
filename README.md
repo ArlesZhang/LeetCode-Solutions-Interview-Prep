@@ -1,2 +1,2 @@
 # leetcode-solutions
-DataCody Agent |FuelGenius | Intelligent Data Systems | AI Infra |  SQL Hive Spark + Python + DS + Algorithm
+DataCody Agent |FuelGenius | Intelligent Data Systems | AI Infra | C/C++  DS + Algorithm and Python Pandas + Spark SQL Hive  
