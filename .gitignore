@@ -1,0 +1,34 @@
+# Build outputs
+build/
+dist/
+*.egg-info/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
+# C++
+*.o
+*.a
+*.dylib
+*.dll
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files
+*.csv
+*.parquet
+*.json
+
+# Diagrams output
+*.png
+*.svg
+
+# MacOS
+.DS_Store

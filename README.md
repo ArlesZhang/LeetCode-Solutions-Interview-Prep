@@ -13,133 +13,69 @@ This repository documents my journey in mastering Data Structures, Algorithms, a
 
 ### **Repository Structure**
 ```
-Algorithmic-Engineering/
+LeetCode/
 │
-├── README.md                          # Overview + badges + progress board
-├── LICENSE
-├── .gitignore
-│
-├── .github/                           # CI/CD & Repo automation
-│   └── workflows/
-│       ├── cpp_ci.yml                 # C++ tests w/ GTest
-│       ├── python_ci.yml              # Pytest + Pandas + Spark checks
-│       └── lint.yml                   # Clang-Format & Black
-│
-├── scripts/                           # DevOps & Productivity
-│   ├── setup_environment.sh
+├── README.md                          # This file
+├── .github/workflows/                 # CI/CD for running tests (e.g., GTest, Pytest)
+│   └── ci.yml
+├── scripts/                           # Utility scripts (e.g., test runners, setup)
 │   ├── run_tests.sh
-│   ├── generate_stats.py              # Auto-generate problem stats
-│   ├── sync_readme.py                 # Auto update README progress
-│   └── export_diagrams.sh             # Convert mermaid -> images
+│   └── setup_environment.sh
 │
+├── cpp/                               # C++ Solutions
+│   ├── CMakeLists.txt                 # CMake for build system
+│   ├── src/
+│   │   ├── core/                      # Core DS & Algo implementations
+│   │   │   ├── graph/
+│   │   │   ├── tree/
+│   │   │   ├── heap/
+│   │   │   └── ...
+│   │   └── solutions/
+│   │       ├── 001-two-sum.cpp
+│   │       ├── 146-lru-cache.cpp      # (Key System Design Problem)
+│   │       └── ...
+│   └── tests/                         # Unit tests using Google Test
+│       ├── test_graph.cpp
+│       └── test_solutions.cpp
 │
-├── src/
-│   ├── core/                          # Your reusable engineering library
-│   │   ├── cpp/
-│   │   │   ├── CMakeLists.txt
-│   │   │   ├── containers/            # Custom DS for interviews & infra
-│   │   │   │   ├── lru_cache/
-│   │   │   │   │   ├── include/lru_cache.h
-│   │   │   │   │   ├── src/lru_cache.cpp
-│   │   │   │   │   └── tests/test_lru_cache.cpp
-│   │   │   │   ├── ring_buffer/
-│   │   │   │   └── skiplist/
-│   │   │   ├── concurrency/           # Multi-thread infra-level primitives
-│   │   │   │   ├── thread_pool/
-│   │   │   │   ├── lock_free_queue/
-│   │   │   │   └── semaphore/
-│   │   │   ├── graph/                 # Graph engine (for real workload)
-│   │   │   ├── trees/
-│   │   │   └── utils/
-│   │   └── python/
-│   │       ├── data_structures/       # DS in Python (heap/tree/utils)
-│   │       ├── de_utils/
-│   │       │   ├── spark_utils.py
-│   │       │   ├── pandas_utils.py
-│   │       │   └── hive_parser.py     # (Optional) Parse Hive outputs
-│   │       └── concurrency/
+├── python/                            # Python Solutions
+│   ├── requirements.txt               # Pandas, PySpark, pytest
+│   ├── src/
+│   │   ├── core/                      # Custom Python utilities
+│   │   └── solutions/
+│   │       ├── 001-two-sum.py
+│   │       ├── 015-3sum.py
+│   │       ├── pandas_spark_sql/      # Data Engineering focused problems
+│   │       │   ├── 0176-second-highest-salary.sql
+│   │       │   ├── 0185-department-top-three-salaries.sql
+│   │       │   └── ...
+│   │       └── ...
+│   └── tests/                         # Unit tests with pytest
+│       ├── test_solutions.py
+│       └── test_pandas_spark.py
 │
-│   ├── solutions/                     # LeetCode Engineering Solutions
-│   │   ├── cpp/
-│   │   │   ├── 0001-two-sum.cpp
-│   │   │   ├── 0146-lru-cache.cpp
-│   │   │   ├── 0295-find-median-from-data-stream.cpp
-│   │   │   ├── concurrency/           # LC 多线程题
-│   │   │   │   ├── 1114-print-in-order.cpp
-│   │   │   │   └── 1188-design-bounded-blocking-queue.cpp
-│   │   │   └── …
-│   │   ├── python/
-│   │   │   ├── 0001-two-sum.py
-│   │   │   ├── data_engineering/      # DE + SQL reasoning
-│   │   │   │   ├── 0176-second-highest-salary.sql
-│   │   │   │   ├── 0185-department-top-three-salaries.sql
-│   │   │   │   ├── pandas/
-│   │   │   │   │   └── groupby_transform_cases.py
-│   │   │   │   └── spark/
-│   │   │   │       └── window_functions.py
-│   │   │   └── …
-│   │   ├── sql/
-│   │   │   ├── easy/
-│   │   │   ├── medium/
-│   │   │   └── hard/
-│   │   └── system_design_problems/
-│   │       ├── tinyurl.md
-│   │       ├── distributed_queue.md
-│   │       └── data-workflow-compiler.md    # Your signature problem
+├── sql/                               # Pure SQL solutions (Hive/Spark SQL mindset)
+│   ├── easy/
+│   ├── medium/
+│   └── hard/
 │
-│   └── system_design/                 # Infra-level thinking
-│       ├── adr/                       # Architecture Decision Records
-│       │   ├── 0001-why-thread-pool.md
-│       │   ├── 0002-cache-layering.md
-│       │   └── 0003-data-pipeline-compiler-core.md
-│       ├── datacody_agent/
-│       │   ├── DESIGN.md
-│       │   ├── diagrams/
-│       │   │   ├── pipeline-flow.mmd
-│       │   │   └── architecture.png
-│       │   └── prototype/
-│       │       └── mini_compiler_demo.py
-│       └── fuelgenius/
-│           ├── TRAINING_DATA_SYSTEM.md
-│           └── sampler/
+├── system_design/                     # System Design Preparations
+│   ├── notes/
+│   │   ├── key-characteristics.md     # Scalability, Latency, Throughput, Availability
+│   │   └── patterns.md                # Load Balancer, Caching, DB Partitioning
+│   ├── problems/
+│   │   ├── tinyurl.md                 # URL Shortener
+│   │   ├── chat-system.md
+│   │   └── data-cody-agent.md         # (Hypothetical: Design an AI data assistant)
+│   └── diagrams/                      # Generated diagrams (e.g., with Mermaid)
 │
-│
-├── tests/                             # Unified test structure
-│   ├── cpp/
-│   │   ├── test_core.cpp
-│   │   └── test_solutions.cpp
-│   ├── python/
-│   │   ├── test_pandas.py
-│   │   ├── test_spark.py
-│   │   └── test_algorithms.py
-│   └── sql/
-│       └── validate_queries.py
-│
-│
-├── docs/                              # Knowledge Base
-│   ├── cheatsheets/
-│   │   ├── cpp_stl.md
-│   │   ├── linux_bash.md
-│   │   ├── spark_sql.md
-│   │   └── pandas.md
-│   ├── patterns/
-│   │   ├── sliding_window.md
-│   │   ├── monotonic_stack.md
-│   │   └── streaming_pipeline.md
-│   ├── interview/
-│   │   ├── ai_infra_100_questions.md
-│   │   ├── cpp_system_questions.md
-│   │   └── behavioral_star.md
-│   └── articles/
-│       ├── how-to-think-like-ai-infra-eng.md
-│       └── from-leetcode-to-system-engineer.md
-│
-│
-└── progress/                          # Growth tracking
-    ├── solved_log.csv
-    ├── stats.png
-    ├── roadmap_90_days.md
-    └── retrospective.md
+└── interview_prep/                    # Compiled Notes and Experiences
+    ├── coding_interview_guide.md
+    ├── language_specific/
+    │   ├── cpp_stl_notes.md
+    │   └── python_internals.md
+    └── behavioral/
+        └── star_method.md
 ```
 
 ---
