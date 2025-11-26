@@ -40,117 +40,105 @@
 
 ## 🎯 Philosophy & Focus
 
-This repository is not just a collection of solutions. It is a **living portfolio** demonstrating the engineering mindset required for roles in:
+This repository documents my journey in mastering Data Structures, Algorithms, and System Design principles. The focus is on building a strong foundation for roles in **AI Infrastructure**, **Data-Intelligent Systems**, and **High-Performance Data Engineering**.
 
-*   **AI Infrastructure:** Building low-latency, high-throughput systems for model training and serving.
-*   **Intelligent Data Systems (DataCody Agent, FuelGenius):** Designing data pipelines, workflow compilers, and metadata management systems.
-*   **Data Platform Engineering:** Creating scalable services for data ingestion, transformation, and analytics.
-
-The code here emphasizes:
-*   **Performance & Memory Awareness:** C/C++ solutions that consider cache locality, allocation costs, and Big-O complexity.
-*   **Data Scalability:** Python solutions that leverage Pandas for in-memory efficiency and demonstrate distributed thinking (Spark/Hive).
-*   **System Reliability:** Robust error handling, comprehensive testing, and clear documentation.
-*   **Real-World Applicability:** Connecting algorithmic patterns to their use cases in caching, scheduling, and data processing.
+**Key Focus Areas:**
+*   **Performance-Critical Systems:** C/C++ implementations focusing on memory management and low-latency.
+*   **Large-Scale Data Processing:** Python solutions leveraging Pandas, PySpark SQL, and understanding of distributed systems.
+*   **System Automation & DevOps:** Scripts and pipelines for automation (Linux Bash, Pipeline tools).
+*   **API & System Design:** Architecting scalable and robust systems.
 
 ---
 
 ## 🏗️ Repository Structure
 
-This structure is designed for clarity, scalability, and automation.
-
-```bash
-Algorithmic-Engineering/
+```
+LeetCode-Solutions-Interview-Prep/
 │
-├── README.md                          # Overview + badges + progress board
-├── LICENSE
-├── .gitignore
-│
-├── .github/                           # CI/CD & Repo automation
-│   └── workflows/
-│       ├── cpp_ci.yml                 # C++ tests w/ GTest
-│       ├── python_ci.yml              # Pytest + Pandas + Spark checks
-│       └── lint.yml                   # Clang-Format & Black
-│
-├── scripts/                           # DevOps & Productivity
-│   ├── setup_environment.sh
+├── README.md                          # This file
+├── .github/workflows/                 # CI/CD for running tests
+│   ├── cpp_ci.yml
+│   ├── python_ci.yml
+│   └── lint.yml
+├── scripts/                           # Utility scripts
 │   ├── run_tests.sh
-│   ├── generate_stats.py              # Auto-generate problem stats
-│   ├── sync_readme.py                 # Auto update README progress
-│   └── export_diagrams.sh             # Convert mermaid -> images
-│
+│   ├── setup_environment.sh
+│   ├── generate_stats.py
+│   ├── sync_readme.py
+│   └── export_diagrams.sh
 │
 ├── src/
-│   ├── core/                          # Your reusable engineering library
+│   ├── core/                          # Reusable engineering components
 │   │   ├── cpp/
 │   │   │   ├── CMakeLists.txt
-│   │   │   ├── containers/            # Custom DS for interviews & infra
+│   │   │   ├── containers/
 │   │   │   │   ├── lru_cache/
 │   │   │   │   │   ├── include/lru_cache.h
 │   │   │   │   │   ├── src/lru_cache.cpp
 │   │   │   │   │   └── tests/test_lru_cache.cpp
 │   │   │   │   ├── ring_buffer/
 │   │   │   │   └── skiplist/
-│   │   │   ├── concurrency/           # Multi-thread infra-level primitives
+│   │   │   ├── concurrency/
 │   │   │   │   ├── thread_pool/
 │   │   │   │   ├── lock_free_queue/
 │   │   │   │   └── semaphore/
-│   │   │   ├── graph/                 # Graph engine (for real workload)
+│   │   │   ├── graph/
 │   │   │   ├── trees/
 │   │   │   └── utils/
 │   │   └── python/
-│   │       ├── data_structures/       # DS in Python (heap/tree/utils)
+│   │       ├── data_structures/
 │   │       ├── de_utils/
 │   │       │   ├── spark_utils.py
 │   │       │   ├── pandas_utils.py
-│   │       │   └── hive_parser.py     # (Optional) Parse Hive outputs
+│   │       │   └── hive_parser.py
 │   │       └── concurrency/
-│
-│   ├── solutions/                     # LeetCode Engineering Solutions
+│   │
+│   ├── solutions/                     # LeetCode solutions
 │   │   ├── cpp/
 │   │   │   ├── 0001-two-sum.cpp
 │   │   │   ├── 0146-lru-cache.cpp
 │   │   │   ├── 0295-find-median-from-data-stream.cpp
-│   │   │   ├── concurrency/           # LC 多线程题
-│   │   │   │   ├── 1114-print-in-order.cpp
-│   │   │   │   └── 1188-design-bounded-blocking-queue.cpp
-│   │   │   └── …
+│   │   │   └── concurrency/
+│   │   │       ├── 1114-print-in-order.cpp
+│   │   │       └── 1188-design-bounded-blocking-queue.cpp
 │   │   ├── python/
 │   │   │   ├── 0001-two-sum.py
-│   │   │   ├── data_engineering/      # DE + SQL reasoning
-│   │   │   │   ├── 0176-second-highest-salary.sql
-│   │   │   │   ├── 0185-department-top-three-salaries.sql
-│   │   │   │   ├── pandas/
-│   │   │   │   │   └── groupby_transform_cases.py
-│   │   │   │   └── spark/
-│   │   │   │       └── window_functions.py
-│   │   │   └── …
+│   │   │   └── data_engineering/
+│   │   │       ├── 0176-second-highest-salary.sql
+│   │   │       ├── 0185-department-top-three-salaries.sql
+│   │   │       ├── pandas/
+│   │   │       │   └── groupby_transform_cases.py
+│   │   │       └── spark/
+│   │   │           └── window_functions.py
 │   │   ├── sql/
 │   │   │   ├── easy/
+│   │   │   │   └── 0175-combine-two-tables.sql
 │   │   │   ├── medium/
+│   │   │   │   └── 0176-second-highest-salary.sql
 │   │   │   └── hard/
+│   │   │       └── 0185-department-top-three-salaries.sql
 │   │   └── system_design_problems/
 │   │       ├── tinyurl.md
 │   │       ├── distributed_queue.md
-│   │       └── data-workflow-compiler.md    # Your signature problem
-│
-│   └── system_design/                 # Infra-level thinking
-│       ├── adr/                       # Architecture Decision Records
+│   │       └── data-workflow-compiler.md
+│   │
+│   └── system_design/                 # System design preparations
+│       ├── adr/
 │       │   ├── 0001-why-thread-pool.md
 │       │   ├── 0002-cache-layering.md
 │       │   └── 0003-data-pipeline-compiler-core.md
 │       ├── datacody_agent/
 │       │   ├── DESIGN.md
 │       │   ├── diagrams/
-│       │   │   ├── pipeline-flow.mmd
-│       │   │   └── architecture.png
+│       │   │   └── pipeline-flow.mmd
 │       │   └── prototype/
 │       │       └── mini_compiler_demo.py
 │       └── fuelgenius/
 │           ├── TRAINING_DATA_SYSTEM.md
 │           └── sampler/
+│               └── data_sampler.py
 │
-│
-├── tests/                             # Unified test structure
+├── tests/                             # Test suites
 │   ├── cpp/
 │   │   ├── test_core.cpp
 │   │   └── test_solutions.cpp
@@ -161,8 +149,7 @@ Algorithmic-Engineering/
 │   └── sql/
 │       └── validate_queries.py
 │
-│
-├── docs/                              # Knowledge Base
+├── docs/                              # Knowledge base
 │   ├── cheatsheets/
 │   │   ├── cpp_stl.md
 │   │   ├── linux_bash.md
@@ -180,10 +167,8 @@ Algorithmic-Engineering/
 │       ├── how-to-think-like-ai-infra-eng.md
 │       └── from-leetcode-to-system-engineer.md
 │
-│
-└── progress/                          # Growth tracking
+└── progress/                          # Progress tracking
     ├── solved_log.csv
-    ├── stats.png
     ├── roadmap_90_days.md
     └── retrospective.md
 ```
@@ -192,20 +177,17 @@ Algorithmic-Engineering/
 
 ## ⚡ Core Problem Set & Implementation
 
-This curated list targets the exact skills needed for your career path.
-
 ### 1. C/C++ Focus (AI Infra & Core Systems)
-
-*Problems that involve building complex data structures, managing memory, and achieving O(1) performance.*
 
 | Problem | Title & Link | Key Concepts | Why It Matters |
 |:--------|:-------------|:-------------|:---------------|
-| **0146** | [LRU Cache](https://leetcode.com/problems/lru-cache/) | Hash Map, Doubly Linked List, O(1) ops | **The canonical caching problem.** Foundational for OS, DBs, and CDNs. |
+| **0146** | [LRU Cache](https://leetcode.com/problems/lru-cache/) | Hash Map, Doubly Linked List, O(1) ops | **Fundamental for caching** in OS, databases, and infra. |
 | **0460** | [LFU Cache](https://leetcode.com/problems/lfu-cache/) | Hash Maps, Balanced Trees, O(1) complexity | Tests deep data structure composition skills. |
 | **0295** | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | Two Heaps (Min & Max) | Essential for real-time analytics and monitoring systems. |
 | **0588** | [Design In-Memory File System](https://leetcode.com/problems/design-in-memory-file-system/) | Trie, OOP Design, API Design | Models hierarchical data, relevant for config systems and metadata stores. |
+| **0239** | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | Deque, Monotonic Queue | Common pattern in data streams and network processing. |
 | **0642** | [Design Search Autocomplete System](https://leetcode.com/problems/design-search-autocomplete-system/) | Trie, Prefix Search, Ranking | Core intelligence for search bars and data discovery tools. |
-| **0212** | [Word Search II](https://leetcode.com/problems/word-search-ii/) | Trie, Backtracking, DFS | Pattern matching on a grid; applicable to data validation and parsing. |
+| **0212** | [Word Search II](https://leetcode.com/problems/word-search-ii/) | Trie, Backtracking, DFS | Pattern matching for data validation and parsing. |
 
 ### 2. Python & Data Engineering Focus
 
@@ -221,14 +203,37 @@ This curated list targets the exact skills needed for your career path.
 
 ### 3. Concurrency & Parallelism
 
-*Problems that mirror the scheduling and coordination challenges in distributed data pipelines.*
-
 | Problem | Title & Link | Key Concepts |
 |:--------|:-------------|:-------------|
-| **1114** | [Print in Order](https://leetcode.com/problems/print-in-order/) | Mutex, Condition Variables. Basic thread sequencing. |
+| **1114** | [Print in Order](https://leetcode.com/problems/print-in-order/) | Mutex, Condition Variables |
 | **1115** | [Print FooBar Alternately](https://leetcode.com/problems/print-foobar-alternately/) | Semaphores. Control interleaved execution of two threads. |
-| **1188** | [Design Bounded Blocking Queue](https://leetcode.com/problems/design-bounded-blocking-queue/) | **CRITICAL.** Producer-Consumer pattern. Mutex, Condition Variables. The backbone of data pipelines. |
-| **1226** | [The Dining Philosophers](https://leetcode.com/problems/the-dining-philosophers/) | Deadlock prevention, Resource hierarchy. |
+| **1188** | [Design Bounded Blocking Queue](https://leetcode.com/problems/design-bounded-blocking-queue/) | Producer-Consumer pattern, Mutex, Condition Variables |
+| **1226** | [The Dining Philosophers](https://leetcode.com/problems/the-dining-philosophers/) | Deadlock prevention, Resource hierarchy |
+
+| Problem Name | LeetCode # | Difficulty | Key Concepts | Relevance to Your Goals | Link |
+|-------------|------------|------------|--------------|------------------------|------|
+| **Fizz Buzz Multithreaded** | #1195 | 🟠 Medium | Synchronization | Concurrent output coordination | [🔗](https://leetcode.com/problems/fizz-buzz-multithreaded/) |
+| **Web Crawler Multithreaded** | #1242 | 🟠 Medium | Concurrent BFS, Thread pools | Distributed web scraping patterns | [🔗](https://leetcode.com/problems/web-crawler-multithreaded/) |
+
+
+#### 4. Advanced System Design Problems
+
+| Problem Name | LeetCode # | Difficulty | Key Concepts | Relevance to Your Goals | Link |
+|-------------|------------|------------|--------------|------------------------|------|
+| **Design Twitter** | #355 | 🟠 Medium | Social Graph, Feed System | Large-scale system design | [🔗](https://leetcode.com/problems/design-twitter/) |
+| **Design Hit Counter** | #362 | 🟠 Medium | Real-time Metrics, Time Windows | Monitoring and analytics | [🔗](https://leetcode.com/problems/design-hit-counter/) |
+| **Serialize and Deserialize Binary Tree** | #297 | 🔴 Hard | Data Serialization | Distributed data formats | [🔗](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) |
+| **Insert Delete GetRandom O(1)** | #380 | 🟠 Medium | Hash Map, Array, Random Access | Database indexing patterns | [🔗](https://leetcode.com/problems/insert-delete-getrandom-o1/) |
+
+### 📈 Problem Set Statistics
+
+| Category | Count | Easy | Medium | Hard | Focus Areas |
+|----------|-------|------|--------|------|-------------|
+| **System Design** | 8 | 0 | 5 | 3 | Caching, APIs, Data Structures |
+| **Concurrency** | 4 | 1 | 3 | 0 | Parallelism, Synchronization |
+| **Data Engineering** | 6 | 0 | 4 | 2 | SQL, Window Functions, Analytics |
+| **Algorithms** | 8 | 0 | 4 | 4 | DP, Graphs, String Processing |
+| **Total** | **26** | **1** | **16** | **9** | **Comprehensive Coverage** |
 
 ---
 
@@ -236,16 +241,15 @@ This curated list targets the exact skills needed for your career path.
 
 ### Mini-Project: High-Performance LRU Cache
 
-This demonstrates moving from a "solution" to a "component."
+**Location**: `src/core/cpp/containers/lru_cache/include/lru_cache.h`
 
-**`src/core/cpp/lru_cache/include/lru_cache.h`**
 ```cpp
 #ifndef ALGORITHMIC_ENGINEERING_LRU_CACHE_H
 #define ALGORITHMIC_ENGINEERING_LRU_CACHE_H
 
 #include <unordered_map>
 #include <list>
-#include <mutex> // For thread-safety
+#include <mutex>
 
 namespace core {
     
@@ -258,296 +262,37 @@ public:
     bool get(const K& key, V& value);
     void put(const K& key, const V& value);
     
-    // Observability for production systems
+    // Observability
     size_t size() const;
     double hit_rate() const;
-    void clear_stats();
 
 private:
     void evict();
-    void promote(typename std::list<std::pair<K, V>>::iterator it);
     
     size_t capacity_;
-    std::list<std::pair<K, V>> items_; // (key, value) pairs in access order
+    std::list<std::pair<K, V>> items_;
     std::unordered_map<K, typename std::list<std::pair<K, V>>::iterator> cache_map_;
     
-    // Metrics
     std::atomic<size_t> hits_{0};
     std::atomic<size_t> misses_{0};
-    mutable std::mutex mutex_; // For thread-safe access
+    mutable std::mutex mutex_;
 };
 
 } // namespace core
 
-#endif //ALGORITHMIC_ENGINEERING_LRU_CACHE_H
+#endif
 ```
-**Key Features:**
-*   **Namespace & Include Guards:** Professional C++ structure.
-*   **Thread Safety:** Uses `mutex` for concurrent access.
-*   **Observability:** Provides `hit_rate()` and other metrics.
-*   **Template Design:** Reusable for any key-value type.
-*   **Comprehensive Tests:** Unit tests in `tests/` validate correctness under concurrent load.
 
 ### System Design: DataCody Agent
-
-**Problem:** Design an intelligent agent that automates dataset profiling, quality checks, and model recommendation.
-
-**Key Discussion Points (Architecture Decision Record - ADR):**
-
-1.  **Service Decomposition:**
-    *   **Ingestion Service:** Handles streaming/batch data from S3, Kafka. Built with async Python/Go.
-    *   **Profiling Service:** Uses Spark for distributed statistical profiling (mean, std, histogram, null-count).
-    *   **Metadata Catalog:** PostgreSQL for structured metadata, Neo4j for data lineage graphs.
-    *   **Recommendation Engine:** Lightweight ML model (e.g., Random Forest) that takes dataset stats (num_cols, avg_val, etc.) and suggests a model type (classification, regression).
-
-2.  **Data Flow:**
-    ```
-    Data Ingest -> (Trigger) -> Spark Profiling Job -> Write Metadata -> Feature Extraction -> Model Recommendation -> Cache Result (Redis)
-    ```
-
-3.  **Pipeline Integration:**
-    *   The agent is triggered via a webhook from a CI/CD pipeline (e.g., GitLab CI, Airflow DAG) whenever a new dataset version is registered.
-    *   Uses a **Bash script** (`scripts/trigger_agent.sh`) as the pipeline entry point, which calls the agent's REST API.
-
----
-
-## 📈 Progress & Metrics
-
-*   **`progress/solved_log.csv`:** Auto-generated by a Python script that parses your LeetCode submissions.
-    ```csv
-    date,problem_id,title,difficulty,language,time_taken_minutes,notes
-    2023-10-27,146,LRU Cache,Hard,C++,45,Need to review edge case: capacity=0
-    ```
-*   **`progress/roadmap_90_days.md`:** A phased plan.
-    *   **Phase 1 (Days 1-30):** Core DSA & SQL Mastery.
-    *   **Phase 2 (Days 31-60):** Concurrency & System Design Deep Dive.
-    *   **Phase 3 (Days 61-90):** Integration & Mock Interviews.
-*   **`progress/mistakes_retrospective.md`:** A log of errors and lessons learned, fostering a growth mindset.
-
----
-
-## 🚀 Getting Started
-
-1.  **Clone and Setup:**
-    ```bash
-    git clone https://github.com/yourusername/Algorithmic-Engineering.git
-    cd Algorithmic-Engineering
-    ./scripts/setup_environment.sh
-    ```
-
-2.  **Run Tests:**
-    ```bash
-    # Run C++ tests
-    ./scripts/run_tests.sh cpp
-    # Run Python tests
-    ./scripts/run_tests.sh python
-    ```
-
-3.  **Solve a Problem:**
-    *   Create a new file in `src/solutions/` (e.g., `src/solutions/cpp/1234-new-problem.cpp`).
-    *   Implement the solution with detailed comments and time/space complexity.
-    *   Write corresponding unit tests.
-    *   Update the `progress/` logs.
-
-4.  **Contribute:** PRs are welcome for new solutions, optimizations, or documentation improvements.
-
----
-
-<div align="center">
-
-**This is more than a study guide—it's the foundation of your engineering legacy. Build, learn, and iterate.**
-
-</div>
-
-
-
-
-
-
-
----
-
-
-
-
-
-
-
-
-
-
-
-## **LeetCode Solutions & Interview Prep**
-
-### **Overview**
-This repository documents my journey in mastering Data Structures, Algorithms, and System Design principles. The focus is on building a strong foundation for roles in **AI Infrastructure**, **Data-Intelligent Systems**, and **High-Performance Data Engineering**. Solutions are implemented with an emphasis on performance, readability, and real-world applicability, primarily using **C/C++** for core algorithms and **Python** for data-intensive problems.
-
-**Key Focus Areas:**
-*   **Performance-Critical Systems:** C/C++ implementations focusing on memory management and low-latency.
-*   **Large-Scale Data Processing:** Python solutions leveraging Pandas, PySpark SQL, and understanding of distributed systems (Spark/Hive).
-*   **System Automation & DevOps:** Scripts and pipelines for automation (Linux Bash, Pipeline tools).
-*   **API & System Design:** Architecting scalable and robust systems.
-
----
-
-### **Repository Structure**
-```
-LeetCode/
-│
-├── README.md                          # This file
-├── .github/workflows/                 # CI/CD for running tests (e.g., GTest, Pytest)
-│   └── ci.yml
-├── scripts/                           # Utility scripts (e.g., test runners, setup)
-│   ├── run_tests.sh
-│   └── setup_environment.sh
-│
-├── cpp/                               # C++ Solutions
-│   ├── CMakeLists.txt                 # CMake for build system
-│   ├── src/
-│   │   ├── core/                      # Core DS & Algo implementations
-│   │   │   ├── graph/
-│   │   │   ├── tree/
-│   │   │   ├── heap/
-│   │   │   └── ...
-│   │   └── solutions/
-│   │       ├── 001-two-sum.cpp
-│   │       ├── 146-lru-cache.cpp      # (Key System Design Problem)
-│   │       └── ...
-│   └── tests/                         # Unit tests using Google Test
-│       ├── test_graph.cpp
-│       └── test_solutions.cpp
-│
-├── python/                            # Python Solutions
-│   ├── requirements.txt               # Pandas, PySpark, pytest
-│   ├── src/
-│   │   ├── core/                      # Custom Python utilities
-│   │   └── solutions/
-│   │       ├── 001-two-sum.py
-│   │       ├── 015-3sum.py
-│   │       ├── pandas_spark_sql/      # Data Engineering focused problems
-│   │       │   ├── 0176-second-highest-salary.sql
-│   │       │   ├── 0185-department-top-three-salaries.sql
-│   │       │   └── ...
-│   │       └── ...
-│   └── tests/                         # Unit tests with pytest
-│       ├── test_solutions.py
-│       └── test_pandas_spark.py
-│
-├── sql/                               # Pure SQL solutions (Hive/Spark SQL mindset)
-│   ├── easy/
-│   ├── medium/
-│   └── hard/
-│
-├── system_design/                     # System Design Preparations
-│   ├── notes/
-│   │   ├── key-characteristics.md     # Scalability, Latency, Throughput, Availability
-│   │   └── patterns.md                # Load Balancer, Caching, DB Partitioning
-│   ├── problems/
-│   │   ├── tinyurl.md                 # URL Shortener
-│   │   ├── chat-system.md
-│   │   └── data-cody-agent.md         # (Hypothetical: Design an AI data assistant)
-│   └── diagrams/                      # Generated diagrams (e.g., with Mermaid)
-│
-└── interview_prep/                    # Compiled Notes and Experiences
-    ├── coding_interview_guide.md
-    ├── language_specific/
-    │   ├── cpp_stl_notes.md
-    │   └── python_internals.md
-    └── behavioral/
-        └── star_method.md
-```
-
----
-
-### **Core Problem Set & Implementation Focus**
-
-This list is curated for your specific tech stack and career goals.
-
-#### **1. C/C++ Focus (AI Infra & Core Systems)**
-*These problems test memory management, pointers, and building complex, efficient data structures.*
-
-| Problem # | Title | Key Concepts | Why Important? |
-| :--- | :--- | :--- | :--- |
-| [146](https://leetcode.com/problems/lru-cache/) | **LRU Cache** | Hash Map, Doubly Linked List, O(1) operations | **Fundamental for caching** in OS, databases, and infra. A classic system design question. |
-| [460](https://leetcode.com/problems/lfu-cache/) | LFU Cache | Hash Map, Linked Lists, O(1) complexity | Even more complex caching policy. Shows deep DS understanding. |
-| [588](https://leetcode.com/problems/design-in-memory-file-system/) | Design In-Memory File System | Trie, Hash Map, Object-Oriented Design | Tests system modeling skills, relevant for any infrastructure role. |
-| [642](https://leetcode.com/problems/design-search-autocomplete-system/) | Design Search Autocomplete System | Trie, Sorting, Prefix Search | Core to intelligent systems and search functionality. |
-| [295](https://leetcode.com/problems/find-median-from-data-stream/) | Find Median from Data Stream | Two Heaps (Min & Max) | Essential for data streaming applications and real-time analytics. |
-| [239](https://leetcode.com/problems/sliding-window-maximum/) | Sliding Window Maximum | Deque, Monotonic Queue | Common pattern in data streams and network processing. |
-| [212](https://leetcode.com/problems/word-search-ii/) | Word Search II | Trie, Backtracking, DFS | Combines a complex data structure with graph traversal. |
-| [224](https://leetcode.com/problems/basic-calculator/) | Basic Calculator | Stack, String Parsing | Tests your ability to handle state and parse expressions, like a mini-interpreter. |
-
-#### **2. Python & Data Engineering Focus (Pandas, Spark SQL)**
-*Focus on data manipulation, SQL, and efficient handling of large datasets.*
-
-| Problem # | Title | Key Concepts | Implementation Focus |
-| :--- | :--- | :--- | :--- |
-| [176](https://leetcode.com/problems/second-highest-salary/) | Second Highest Salary | SQL: `DENSE_RANK()`, `OFFSET`, `LIMIT` | **Spark SQL / Hive** translation. Handling NULLs. |
-| [178](https://leetcode.com/problems/rank-scores/) | Rank Scores | SQL: Window Functions (`RANK`, `DENSE_RANK`) | **Spark SQL**: Using Window functions for ranking. |
-| [185](https://leetcode.com/problems/department-top-three-salaries/) | Department Top Three Salaries | SQL: Correlated Subqueries, Window Functions | **Pandas**: `groupby`, `transform`, `rank`. **Spark SQL**: Window functions with partitioning. |
-| [601](https://leetcode.com/problems/human-traffic-of-stadium/) | Human Traffic of Stadium | SQL: Complex Joins, Window Functions | Identifying contiguous segments in data - a common ETL task. |
-| [262](https://leetcode.com/problems/trips-and-users/) | Trips and Users | SQL: Complex Filtering, Aggregation, `CASE` | Real-world business logic and metric calculation. |
-| [1158](https://leetcode.com/problems/market-analysis-i/) | Market Analysis I | SQL: `JOIN`, `GROUP BY`, `COUNT`, `CASE` | Standard business intelligence query. |
-| [Pandas 50](https://leetcode.com/studyplan/pandas-50-lc/) | (LeetCode Pandas Study Plan) | `merge`, `groupby`, `pivot_table`, `melt` | Master all core Pandas operations for data wrangling. |
-
-#### **3. Algorithmic Patterns (Essential for All Roles)**
-*   **Graph Algorithms:** BFS, DFS, Topological Sort (for task scheduling), Dijkstra's (for routing).
-*   **Dynamic Programming:** Knapsack, Longest Common Subsequence, State Machine DP.
-*   **Tree Traversals:** Inorder/Preorder/Postorder, Level Order, BST operations.
-*   **Binary Search:** Both on arrays and in application (e.g., capacity planning).
-
----
-
-### **System Design & Engineering Implementation**
-
-This section is critical for `DataCody Agent`, `FuelGenius`, and `AI Infra` roles.
-
-#### **Mini-Project: Implementing a High-Performance LRU Cache in C++**
-This goes beyond just solving the problem on LeetCode. It's about building a robust, testable component.
-
-**`cpp/src/core/lru_cache.h`**
-```cpp
-#ifndef LRU_CACHE_H
-#define LRU_CACHE_H
-
-#include <unordered_map>
-#include <list>
-
-template <typename K, typename V>
-class LRUCache {
-public:
-    explicit LRUCache(size_t capacity);
-    V get(K key);
-    void put(K key, V value);
-    // Add methods for metrics (e.g., hit rate) for observability.
-    double get_hit_rate() const;
-
-private:
-    void evict();
-
-    size_t capacity_;
-    std::list<std::pair<K, V>> items_; // Doubly-linked list for order
-    std::unordered_map<K, typename std::list<std::pair<K, V>>::iterator> cache_map_; // For O(1) access
-    size_t hits_{0};
-    size_t misses_{0};
-};
-
-#endif // LRU_CACHE_H
-```
-**Implementation (`lru_cache.cpp`)** would include the detailed logic, and **`tests/test_lru_cache.cpp`** would validate correctness and performance under load.
-
-#### **System Design Problem: Design DataCody Agent**
-*A hypothetical question directly related to your goal.*
 
 **Problem:** Design an intelligent agent ("DataCody") that can profile datasets, suggest quality checks, and recommend suitable ML models.
 
 **Key Discussion Points:**
-1.  **Service Architecture:** Microservices vs Monolith. API design (REST/gRPC) for interactions.
-2.  **Data Ingestion & Profiling:** How to handle large, streaming datasets? Using Spark for distributed profiling? Integration with data lakes (S3/HDFS).
-3.  **Metadata Storage:** What database to use? Relational (PostgreSQL) for structured metadata, or a graph DB (Neo4j) for data lineage?
-4.  **Model Recommendation Engine:** A separate service. How is it trained? How are features (dataset statistics) fed into it?
-5.  **Caching & Performance:** Use Redis/Memcached to cache profile results and model recommendations.
-6.  **Pipeline Integration:** How would this agent fit into a CI/CD pipeline for data? (e.g., triggered on new data version).
+1.  **Service Architecture:** Microservices vs Monolith. API design (REST/gRPC).
+2.  **Data Ingestion & Profiling:** Handling large datasets with Spark for distributed profiling.
+3.  **Metadata Storage:** PostgreSQL for structured metadata, Neo4j for data lineage.
+4.  **Model Recommendation Engine:** ML service that takes dataset stats and suggests model types.
+5.  **Pipeline Integration:** CI/CD pipeline triggers via webhooks.
 
 ---
 
@@ -578,4 +323,58 @@ private:
 4.  **Document:** Add a comment at the top of each solution file with the problem description, approach, and time/space complexity.
 5.  **Iterate on Design:** Use the `system_design/` folder to draft and refine your answers to system design questions.
 
-**Keep Grinding! This organized approach will pay off immensely in your interviews.**
+
+## 📈 Progress & Metrics
+
+*   **`progress/solved_log.csv`:** Auto-generated progress tracking
+    ```csv
+    date,problem_id,title,difficulty,language,time_taken_minutes,notes
+    2024-11-26,146,LRU Cache,Hard,C++,45,Implement thread-safe version
+    ```
+*   **`progress/roadmap_90_days.md`:** Phased learning plan
+*   **`progress/retrospective.md`:** Lessons learned and improvements
+
+---
+
+## 🚀 Getting Started
+
+1.  **Clone and Setup:**
+    ```bash
+    git clone git@github.com:ArlesZhang/LeetCode-Solutions-Interview-Prep.git
+    cd LeetCode-Solutions-Interview-Prep
+    ```
+
+2.  **Solve Problems Systematically:**
+    ```bash
+    # Create solution file
+    vim src/solutions/cpp/0001-two-sum.cpp
+    
+    # Write tests
+    vim tests/cpp/test_solutions.cpp
+    
+    # Update progress
+    python scripts/generate_stats.py
+    ```
+
+3.  **Run Tests:**
+    ```bash
+    ./scripts/run_tests.sh cpp
+    ./scripts/run_tests.sh python
+    ```
+
+4.  **Commit and Push:**
+    ```bash
+    git add .
+    git commit -m "feat: solve PROBLEM_ID with APPROACH"
+    git push origin main
+    ```
+
+---
+
+<div align="center">
+
+**This is more than a study guide—it's the foundation of your engineering legacy. Build, learn, and iterate.**
+
+</div>
+
+
