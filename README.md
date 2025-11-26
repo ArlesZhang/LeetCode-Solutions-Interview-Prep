@@ -21,7 +21,7 @@
 
 ---
 
-## 🧭 Navigation
+## Navigation
 
 - [🧭 Navigation](#-navigation)
 - [🎯 Philosophy & Focus](#-philosophy--focus)
@@ -38,7 +38,7 @@
 
 ---
 
-## 🎯 Philosophy & Focus
+## Philosophy & Focus
 
 This repository documents my journey in mastering Data Structures, Algorithms, and System Design principles. The focus is on building a strong foundation for roles in **AI Infrastructure**, **Data-Intelligent Systems**, and **High-Performance Data Engineering**.
 
@@ -50,7 +50,7 @@ This repository documents my journey in mastering Data Structures, Algorithms, a
 
 ---
 
-## 🏗️ Repository Structure
+## Repository Structure
 
 ```
 LeetCode-Solutions-Interview-Prep/
@@ -175,7 +175,7 @@ LeetCode-Solutions-Interview-Prep/
 
 ---
 
-## ⚡ Core Problem Set & Implementation
+## Core Problem Set & Implementation
 
 ### 1. C/C++ Focus (AI Infra & Core Systems)
 
@@ -225,7 +225,7 @@ LeetCode-Solutions-Interview-Prep/
 | **Serialize and Deserialize Binary Tree** | #297 | 🔴 Hard | Data Serialization | Distributed data formats | [🔗](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) |
 | **Insert Delete GetRandom O(1)** | #380 | 🟠 Medium | Hash Map, Array, Random Access | Database indexing patterns | [🔗](https://leetcode.com/problems/insert-delete-getrandom-o1/) |
 
-### 📈 Problem Set Statistics
+### Problem Set Statistics
 
 | Category | Count | Easy | Medium | Hard | Focus Areas |
 |----------|-------|------|--------|------|-------------|
@@ -237,7 +237,7 @@ LeetCode-Solutions-Interview-Prep/
 
 ---
 
-## 🏗️ System Design & Engineering
+## System Design & Engineering
 
 ### Mini-Project: High-Performance LRU Cache
 
@@ -324,7 +324,7 @@ private:
 5.  **Iterate on Design:** Use the `system_design/` folder to draft and refine your answers to system design questions.
 
 
-## 📈 Progress & Metrics
+## Progress & Metrics
 
 *   **`progress/solved_log.csv`:** Auto-generated progress tracking
     ```csv
@@ -336,7 +336,7 @@ private:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1.  **Clone and Setup:**
     ```bash
