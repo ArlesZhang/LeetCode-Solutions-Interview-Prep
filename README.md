@@ -54,123 +54,119 @@ This repository documents my journey in mastering Data Structures, Algorithms, a
 
 ```
 LeetCode-Solutions-Interview-Prep/
+├── 📚 docs/                           # 知识库文档
+│   ├── articles/                      # 技术文章和深度思考
+│   │   ├── from-leetcode-to-system-engineer.md    # 职业发展路径
+│   │   └── how-to-think-like-ai-infra-eng.md      # AI基础设施思维模式
+│   ├── cheatsheets/                   # 速查手册
+│   │   ├── cpp_stl.md                 # C++标准库快速参考
+│   │   ├── linux_bash.md              # Linux命令和脚本技巧
+│   │   ├── pandas.md                  # Pandas数据处理备忘
+│   │   └── spark_sql.md               # Spark SQL语法和优化
+│   ├── interview/                     # 面试准备资料
+│   │   ├── ai_infra_100_questions.md  # AI基础设施面试题
+│   │   ├── behavioral_star.md         # 行为面试STAR方法
+│   │   └── cpp_system_questions.md    # C++系统级开发问题
+│   └── patterns/                      # 算法和系统模式
+│       ├── monotonic_stack.md         # 单调栈模式及应用
+│       ├── sliding_window.md          # 滑动窗口模式
+│       └── streaming_pipeline.md      # 流式处理管道设计
 │
-├── README.md                          # This file
-├── .github/workflows/                 # CI/CD for running tests
-│   ├── cpp_ci.yml
-│   ├── python_ci.yml
-│   └── lint.yml
-├── scripts/                           # Utility scripts
-│   ├── run_tests.sh
-│   ├── setup_environment.sh
-│   ├── generate_stats.py
-│   ├── sync_readme.py
-│   └── export_diagrams.sh
+├── ⚖️ LICENSE                         # 开源许可证
+├── 📈 progress/                       # 学习进度跟踪
+│   ├── retrospective.md               # 学习回顾和反思
+│   ├── roadmap_90_days.md             # 90天学习路线图
+│   └── solved_log.csv                 # 解题记录统计
 │
-├── src/
-│   ├── core/                          # Reusable engineering components
-│   │   ├── cpp/
-│   │   │   ├── CMakeLists.txt
-│   │   │   ├── containers/
-│   │   │   │   ├── lru_cache/
-│   │   │   │   │   ├── include/lru_cache.h
-│   │   │   │   │   ├── src/lru_cache.cpp
-│   │   │   │   │   └── tests/test_lru_cache.cpp
-│   │   │   │   ├── ring_buffer/
-│   │   │   │   └── skiplist/
-│   │   │   ├── concurrency/
-│   │   │   │   ├── thread_pool/
-│   │   │   │   ├── lock_free_queue/
-│   │   │   │   └── semaphore/
-│   │   │   ├── graph/
-│   │   │   ├── trees/
-│   │   │   └── utils/
-│   │   └── python/
-│   │       ├── data_structures/
-│   │       ├── de_utils/
-│   │       │   ├── spark_utils.py
-│   │       │   ├── pandas_utils.py
-│   │       │   └── hive_parser.py
-│   │       └── concurrency/
+├── 📖 README.md                       # 项目主文档
+├── ⚙️ scripts/                        # 自动化脚本
+│   ├── export_diagrams.sh             # 导出架构图
+│   ├── generate_stats.py              # 生成学习统计数据
+│   ├── run_tests.sh                   # 运行测试套件
+│   ├── setup_environment.sh           # 环境配置脚本
+│   └── sync_readme.py                 # 同步README进度
+│
+├── 💻 src/                            # 源代码核心
+│   ├── 🔧 core/                       # 可复用工程组件库
+│   │   ├── cpp/                       # C++高性能组件
+│   │   │   ├── CMakeLists.txt         # C++项目构建配置
+│   │   │   ├── concurrency/           # 并发编程原语
+│   │   │   │   ├── lock_free_queue/   # 无锁队列实现
+│   │   │   │   ├── semaphore/         # 信号量同步
+│   │   │   │   └── thread_pool/       # 线程池管理
+│   │   │   ├── containers/            # 自定义数据结构
+│   │   │   │   ├── lru_cache/         # LRU缓存实现
+│   │   │   │   │   ├── include/lru_cache.h        # 头文件
+│   │   │   │   │   ├── src/lru_cache.cpp          # 实现文件
+│   │   │   │   │   └── tests/test_lru_cache.cpp   # 单元测试
+│   │   │   │   ├── ring_buffer/       # 环形缓冲区
+│   │   │   │   └── skiplist/          # 跳表数据结构
+│   │   │   ├── graph/                 # 图算法引擎
+│   │   │   ├── trees/                 # 树结构和算法
+│   │   │   └── utils/                 # 工具函数
+│   │   └── python/                    # Python数据工程工具
+│   │       ├── concurrency/           # Python并发编程
+│   │       ├── data_structures/       # Python数据结构实现
+│   │       └── de_utils/              # 数据工程工具集
+│   │           ├── hive_parser.py     # Hive查询解析器
+│   │           ├── pandas_utils.py    # Pandas工具函数
+│   │           └── spark_utils.py     # Spark会话管理
 │   │
-│   ├── solutions/                     # LeetCode solutions
-│   │   ├── cpp/
-│   │   │   ├── 0001-two-sum.cpp
-│   │   │   ├── 0146-lru-cache.cpp
-│   │   │   ├── 0295-find-median-from-data-stream.cpp
-│   │   │   └── concurrency/
-│   │   │       ├── 1114-print-in-order.cpp
-│   │   │       └── 1188-design-bounded-blocking-queue.cpp
-│   │   ├── python/
-│   │   │   ├── 0001-two-sum.py
-│   │   │   └── data_engineering/
-│   │   │       ├── 0176-second-highest-salary.sql
-│   │   │       ├── 0185-department-top-three-salaries.sql
-│   │   │       ├── pandas/
-│   │   │       │   └── groupby_transform_cases.py
-│   │   │       └── spark/
-│   │   │           └── window_functions.py
-│   │   ├── sql/
-│   │   │   ├── easy/
-│   │   │   │   └── 0175-combine-two-tables.sql
-│   │   │   ├── medium/
-│   │   │   │   └── 0176-second-highest-salary.sql
-│   │   │   └── hard/
-│   │   │       └── 0185-department-top-three-salaries.sql
-│   │   └── system_design_problems/
-│   │       ├── tinyurl.md
-│   │       ├── distributed_queue.md
-│   │       └── data-workflow-compiler.md
+│   ├── 🎯 solutions/                  # LeetCode解决方案
+│   │   ├── cpp/                       # C++算法实现
+│   │   │   ├── 0001-two-sum.cpp       # 两数之和
+│   │   │   ├── 0146-lru-cache.cpp     # LRU缓存设计
+│   │   │   ├── 0295-find-median-from-data-stream.cpp  # 数据流中位数
+│   │   │   └── concurrency/           # 并发编程题目
+│   │   │       ├── 1114-print-in-order.cpp          # 顺序打印
+│   │   │       └── 1188-design-bounded-blocking-queue.cpp  # 阻塞队列
+│   │   ├── python/                    # Python解决方案
+│   │   │   ├── 0001-two-sum.py        # Python版两数之和
+│   │   │   └── data_engineering/      # 数据工程题目
+│   │   │       ├── 0176-second-highest-salary.sql    # 第二高薪水
+│   │   │       ├── 0185-department-top-three-salaries.sql  # 部门前三薪水
+│   │   │       ├── pandas/            # Pandas数据处理
+│   │   │       │   └── groupby_transform_cases.py    # 分组转换案例
+│   │   │       └── spark/             # Spark处理模式
+│   │   │           └── window_functions.py           # 窗口函数应用
+│   │   ├── sql/                       # SQL专项练习
+│   │   │   ├── easy/                  # 简单难度
+│   │   │   │   └── 0175-combine-two-tables.sql       # 合并两表
+│   │   │   ├── hard/                  # 困难难度
+│   │   │   │   └── 0185-department-top-three-salaries.sql  # 部门前三
+│   │   │   └── medium/                # 中等难度
+│   │   │       └── 0176-second-highest-salary.sql    # 第二高薪水
+│   │   └── system_design_problems/    # 系统设计题目
+│   │       ├── data-workflow-compiler.md     # 数据工作流编译器设计
+│   │       ├── distributed_queue.md          # 分布式队列设计
+│   │       └── tinyurl.md                    # 短链接系统设计
 │   │
-│   └── system_design/                 # System design preparations
-│       ├── adr/
-│       │   ├── 0001-why-thread-pool.md
-│       │   ├── 0002-cache-layering.md
-│       │   └── 0003-data-pipeline-compiler-core.md
-│       ├── datacody_agent/
-│       │   ├── DESIGN.md
-│       │   ├── diagrams/
-│       │   │   └── pipeline-flow.mmd
-│       │   └── prototype/
-│       │       └── mini_compiler_demo.py
-│       └── fuelgenius/
-│           ├── TRAINING_DATA_SYSTEM.md
-│           └── sampler/
-│               └── data_sampler.py
+│   └── 🏗️ system_design/              # 系统架构设计
+│       ├── adr/                       # 架构决策记录
+│       │   ├── 0001-why-thread-pool.md        # 线程池选择原因
+│       │   ├── 0002-cache-layering.md         # 缓存分层设计
+│       │   └── 0003-data-pipeline-compiler-core.md  # 数据管道编译器核心
+│       ├── datacody_agent/            # DataCody智能代理设计
+│       │   ├── DESIGN.md              # 整体架构设计文档
+│       │   ├── diagrams/              # 架构图
+│       │   │   └── pipeline-flow.mmd  # 管道流程图
+│       │   └── prototype/             # 原型实现
+│       │       └── mini_compiler_demo.py      # 迷你编译器演示
+│       └── fuelgenius/                # FuelGenius项目设计
+│           ├── sampler/               # 数据采样器
+│           │   └── data_sampler.py    # 数据采样实现
+│           └── TRAINING_DATA_SYSTEM.md        # 训练数据系统设计
 │
-├── tests/                             # Test suites
-│   ├── cpp/
-│   │   ├── test_core.cpp
-│   │   └── test_solutions.cpp
-│   ├── python/
-│   │   ├── test_pandas.py
-│   │   ├── test_spark.py
-│   │   └── test_algorithms.py
-│   └── sql/
-│       └── validate_queries.py
-│
-├── docs/                              # Knowledge base
-│   ├── cheatsheets/
-│   │   ├── cpp_stl.md
-│   │   ├── linux_bash.md
-│   │   ├── spark_sql.md
-│   │   └── pandas.md
-│   ├── patterns/
-│   │   ├── sliding_window.md
-│   │   ├── monotonic_stack.md
-│   │   └── streaming_pipeline.md
-│   ├── interview/
-│   │   ├── ai_infra_100_questions.md
-│   │   ├── cpp_system_questions.md
-│   │   └── behavioral_star.md
-│   └── articles/
-│       ├── how-to-think-like-ai-infra-eng.md
-│       └── from-leetcode-to-system-engineer.md
-│
-└── progress/                          # Progress tracking
-    ├── solved_log.csv
-    ├── roadmap_90_days.md
-    └── retrospective.md
+└── ✅ tests/                          # 测试套件
+    ├── cpp/                           # C++测试
+    │   ├── test_core.cpp              # 核心组件测试
+    │   └── test_solutions.cpp         # 解决方案测试
+    ├── python/                        # Python测试
+    │   ├── test_algorithms.py         # 算法测试
+    │   ├── test_pandas.py             # Pandas功能测试
+    │   └── test_spark.py              # Spark功能测试
+    └── sql/                           # SQL测试
+        └── validate_queries.py        # 查询验证测试
 ```
 
 ---
